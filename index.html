@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#1a1a2e">
+  <title>小伴 - 智能陪伴</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="settings-bar">
+      <div class="status-dot" id="statusDot"></div>
+      <span class="status-text" id="statusText">就绪</span>
+      <button class="settings-btn" id="settingsBtn">&#9881;</button>
+    </div>
+
+    <div class="face-area" id="faceArea">
+      <div class="robot-face" id="robotFace">
+        <div class="face-circle">
+          <div class="eye left-eye"><div class="pupil"></div></div>
+          <div class="eye right-eye"><div class="pupil"></div></div>
+          <div class="mouth" id="mouth"></div>
+        </div>
+      </div>
+      <div class="bubble" id="speechBubble"></div>
+    </div>
+
+    <div class="chat-area" id="chatArea">
+      <div class="chat-messages" id="chatMessages"></div>
+    </div>
+
+    <div class="input-area">
+      <button class="mic-btn" id="micBtn">&#127908;</button>
+      <input type="text" class="text-input" id="textInput" placeholder="和我说话吧..." autocomplete="off">
+      <button class="send-btn" id="sendBtn">&#9654;</button>
+    </div>
+
+  </div>
+
+  <div class="settings-panel" id="settingsPanel">
+    <div class="settings-header">
+      <h3>设置</h3>
+      <button class="close-btn" id="closeSettings">&#10005;</button>
+    </div>
+    <div class="settings-body">
+      <label>DeepSeek API Key</label>
+      <input type="password" id="dsKey" placeholder="sk-...">
+      <label>机器人名字</label>
+      <input type="text" id="robotName" value="小伴">
+      <label>语音合成 (TTS)</label>
+      <select id="ttsEngine">
+        <option value="native">手机自带（免费）</option>
+        <option value="azure">Azure TTS（需 Key）</option>
+      </select>
+      <div id="azureSettings" style="display:none">
+        <label>Azure Speech Key</label>
+        <input type="password" id="azureKey" placeholder="">
+        <label>Azure 区域</label>
+        <input type="text" id="azureRegion" value="eastasia">
+      </div>
+      <div class="settings-actions">
+        <button class="btn-save" id="saveSettings">保存</button>
+        <button class="btn-clear" id="clearMemory">清除记忆</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
